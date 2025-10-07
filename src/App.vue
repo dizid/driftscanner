@@ -1,47 +1,35 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
+<!-- App.vue -->
+<!-- Root component for the Drift PnL Tracker app. Provides a simple layout with navigation. -->
+<!-- Uses Tailwind for consistent, maintainable styling. Includes router-view for page routing. -->
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="min-h-screen bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-drift-purple text-white p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold">Drift PnL Tracker</h1>
+        <ul class="flex space-x-4">
+          <li><router-link to="/" class="hover:underline">Home</router-link></li>
+          <li><router-link to="/drift-pnl" class="hover:underline">PnL Tracker</router-link></li>
+        </ul>
+      </div>
+    </nav>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <!-- Main Content -->
+    <div class="container mx-auto p-4">
+      <router-view />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'App',
+});
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+/* Scoped styles if needed */
 </style>
